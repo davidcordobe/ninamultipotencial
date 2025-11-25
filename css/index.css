@@ -1,0 +1,398 @@
+/* ==============================
+   🏠 HEADER (solo Index)
+============================== */
+header {
+  position: relative;
+  height: 75vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.header-bg {
+  position: absolute;
+  inset: 0;
+  background: url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1950&q=80")
+    center/cover no-repeat;
+  filter: brightness(0.4);
+  z-index: 0;
+}
+
+#tsparticles {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.header-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  padding: 20px;
+}
+
+header h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+}
+
+header h2 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #e0e0e0;
+}
+
+header p {
+  color: #ccc;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+/* ==============================
+   📚 SECCIÓN CURSOS
+============================== */
+.courses {
+  padding: 60px 20px;
+  background-color: #111;
+  text-align: center;
+}
+
+.courses h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+.courses-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+}
+
+.course-card {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 30px;
+  width: 320px;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.course-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.15);
+}
+
+.course-card img {
+  width: 100%;
+  height: 63%;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.course-card h3 {
+  color: #fff;
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+
+.course-card p {
+  color: #ddd;
+  margin-bottom: 10px;
+}
+
+.course-card .mp-btn {
+  margin-top: 5px; /* separa el botón del texto de arriba */
+  display: inline-block;
+}
+
+
+/* ==============================
+   💛 BOTÓN GENERAL (Paleta arena/beige)
+============================== */
+.mp-btn {
+  background: linear-gradient(135deg, #d9b89c, #e6c9a8);
+  color: #4b3f36;
+  border: none;
+  border-radius: 50px;
+  margin-top: 30px;
+  padding: 12px 28px;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 12px rgba(217, 184, 156, 0.4);
+}
+
+.mp-btn:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #e6c9a8, #f2dbc1);
+  box-shadow: 0 0 20px rgba(217, 184, 156, 0.6);
+}
+
+
+/* ==============================
+   🧑 ABOUT
+============================== */
+.about {
+  padding: 60px 20px;
+  text-align: center;
+  background: #0f0f0f;
+}
+
+.about img {
+  width: 150px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+
+/* ==============================
+   TESTIMONIALS SECTION
+============================== */
+.testimonials {
+  background-color: #f9f4ef;
+  color: #3c2f2f;
+  padding: 80px 20px;
+  text-align: center;
+  position: relative;
+}
+
+.testimonials h2 {
+  font-size: 2.2rem;
+  color: #c1a78e;
+  margin-bottom: 60px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+}
+
+.testimonials-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.testimonial-card {
+  background: #fffdf9;
+  border: 1px solid rgba(193, 167, 142, 0.3);
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 8px 25px rgba(193, 167, 142, 0.25);
+  transition: all 0.4s ease;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(193, 167, 142, 0.35);
+}
+
+.testimonial-content {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.quote {
+  font-style: italic;
+  color: #4a3b2c;
+  font-size: 1rem;
+  line-height: 1.7;
+  position: relative;
+  padding-left: 30px;
+}
+
+.quote::before {
+  content: "“";
+  position: absolute;
+  left: 0;
+  top: -10px;
+  font-size: 2.5rem;
+  color: #d4bfa3;
+  opacity: 0.6;
+}
+
+.author {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.author img {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #e6c9a8;
+}
+
+.author h3 {
+  margin: 0;
+  font-size: 1rem;
+  color: #3c2f2f;
+}
+
+.author span {
+  font-size: 0.9rem;
+  color: #9a8875;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+
+
+/* ==============================
+   FAQ SECTION
+============================== */
+.faq {
+  background-color: #111;
+  color: #fff;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.faq h2 {
+  font-size: 2.2rem;
+  color: #e6c9a8;
+  margin-bottom: 50px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.faq-container {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.faq-item {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 15px;
+  margin-bottom: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(230, 201, 168, 0.1);
+}
+
+.faq-question {
+  width: 100%;
+  background: transparent;
+  border: none;
+  color: #fff;
+  text-align: left;
+  padding: 20px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.faq-question:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.faq-icon {
+  position: relative;
+  width: 20px;
+  height: 20px;
+}
+
+.faq-icon::before,
+.faq-icon::after {
+  content: "";
+  position: absolute;
+  background-color: #e6c9a8;
+  transition: transform 0.3s ease;
+}
+
+.faq-icon::before {
+  width: 2px;
+  height: 100%;
+  left: 9px;
+  top: 0;
+}
+
+.faq-icon::after {
+  width: 100%;
+  height: 2px;
+  top: 9px;
+  left: 0;
+}
+
+.faq-item.active .faq-icon::before {
+  transform: rotate(90deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.faq-answer p {
+  padding: 0 20px 20px;
+  margin: 0;
+  color: #ccc;
+  line-height: 1.7;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 400px;
+  padding-top: 5px;
+}
+
+.faq-item.active {
+  border-color: rgba(230, 201, 168, 0.4);
+  box-shadow: 0 0 15px rgba(230, 201, 168, 0.3);
+}
+
+
+
+/* ==============================
+   🌐 REDES SOCIALES
+============================== */
+.socials {
+  text-align: center;
+  padding: 60px 20px;
+  background: #181818;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.social-icons img {
+  width: 70px;
+  transition: transform 0.3s;
+}
+
+.social-icons img:hover {
+  transform: scale(1.15) rotate(-5deg);
+}

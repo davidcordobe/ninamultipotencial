@@ -1,0 +1,232 @@
+/* ==============================
+   BASE
+============================== */
+body {
+    font-family: "Poppins", sans-serif;
+    background-color: #0a0a0a;
+    color: #fff;
+    line-height: 1.8;
+    overflow-x: hidden;
+}
+
+/* ==============================
+   HEADER
+============================== */
+header {
+    position: relative;
+    height: 75vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+.header-bg {
+    position: absolute;
+    inset: 0;
+    background: url("https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1950&q=80") center/cover no-repeat;
+    filter: brightness(0.45);
+    z-index: 0;
+}
+
+#tsparticles {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.header-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 20px;
+}
+
+header h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+}
+
+header h2 {
+    font-size: 1.5rem;
+    color: #e0e0e0;
+}
+
+header p {
+    color: #ccc;
+    margin-top: 10px;
+}
+
+/* ==============================
+   SECCIÓN PRINCIPAL
+============================== */
+.courses {
+    padding: 80px 20px;
+    background-color: #111;
+    text-align: center;
+}
+
+.courses h2 {
+    font-size: 2.2rem;
+    margin-bottom: 50px;
+    letter-spacing: 1px;
+    color: #fff;
+}
+
+.courses-container {
+    display: flex;
+    justify-content: center;
+}
+
+.course-card {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 40px;
+    max-width: 900px;
+    margin: 0 auto;
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.08);
+    text-align: left;
+}
+
+.course-card img.workbook-img {
+    display: block;
+    width: 50%;
+    border-radius: 12px;
+    margin: 0 auto 30px auto; /* centra horizontalmente y mantiene margen inferior */
+}
+
+
+/* Titulares */
+.course-card h3 {
+    font-size: 1.8rem;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.course-card h4 {
+    color: #fff;
+    font-size: 1.4rem;
+    margin: 30px 0 15px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 5px;
+}
+
+.course-card h5 {
+    color: #ccc;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+/* Contenido */
+.course-content p {
+    color: #ddd;
+    margin-bottom: 18px;
+    font-size: 1rem;
+}
+
+.course-content ul {
+    padding-left: 25px;
+    margin-bottom: 25px;
+}
+
+.course-content li {
+    color: #ccc;
+    margin-bottom: 8px;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+blockquote {
+    border-left: 4px solid #fff;
+    padding-left: 15px;
+    font-style: italic;
+    color: #ccc;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    margin: 25px 0;
+    padding: 15px;
+}
+
+/* Precio */
+.course-price {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+    color: #fff;
+}
+
+/* ==============================
+   FORMULARIO
+============================== */
+.portal {
+    text-align: center;
+    margin-top: 30px;
+    padding: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.portal label {
+    color: white;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 8px;
+    font-size: 1rem;
+}
+
+.portal input {
+    padding: 12px 18px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    width: 80%;
+    max-width: 320px;
+    font-size: 1rem;
+    text-align: center;
+    outline: none;
+    background-color: #222;
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+.portal input:focus {
+    background-color: #333;
+    border-color: #fff;
+}
+
+/* ==============================
+   BOTÓN DE MERCADO PAGO
+============================== */
+#wallet_container {
+    margin-top: 35px;
+    transform: scale(0.9);
+    text-align: center;
+}
+
+/* ==============================
+   BOTÓN VOLVER AL INICIO (ESTILO ARENA)
+============================== */
+.volver-container {
+    text-align: center;
+    margin: 50px 0 20px;
+}
+
+.btn-volver {
+    display: inline-block;
+    background: linear-gradient(90deg, #d9b89c, #e6c9a8);
+    color: #4b3f36;
+    font-weight: 600;
+    padding: 12px 28px;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: all;
+}
+
+.btn-volver:hover {
+    transform: scale(1.05);
+    background: linear-gradient(90deg, #e6c9a8, #f2dbc1);
+    box-shadow: 0 0 18px rgba(217, 184, 156, 0.6);
+}

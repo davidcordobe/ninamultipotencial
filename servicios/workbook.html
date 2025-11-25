@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Workbook Estratégico | NINA</title>
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/workbook.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Librerías externas -->
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+
+    <!-- SDK de Mercado Pago -->
+    <script src="https://sdk.mercadopago.com/js/v2"></script>
+</head>
+
+<body class="workbook-page">
+    <div id="progress-bar"></div>
+    <div id="tsparticles"></div>
+
+    <header class="fade-in">
+        
+        <div class="header-bg"></div>
+        <div class="header-content fade-in-delayed">
+            <h1>Workbook Estratégico</h1>
+            <h2 class="reveal">Diseña tu <span class="dynamic-text">plan</span> con enfoque y claridad 🌿</h2>
+            <p>Una guía descargable paso a paso para potenciar tu negocio con estrategia.</p>
+        </div>
+    </header>
+
+    <!-- Sección principal -->
+    <section class="courses fade-in-delayed">
+        <h2>Tu Guía de Estrategia ✨</h2>
+        <div class="courses-container">
+            <div class="course-card">
+                <img class="workbook-img" src="../servicios/Workbook.png" alt="Workbook Estratégico">
+                <h3>Organizá tus ideas con propósito y claridad</h3>
+
+                <div class="course-content">
+                    <h4>🌞 Qué es el Workbook</h4>
+                    <p>Este workbook es una herramienta práctica para ayudarte a construir una estrategia sólida de
+                        comunicación y
+                        ventas. Incluye secciones guiadas con ejercicios simples y accionables.</p>
+
+                    <h4>📘 Qué vas a lograr</h4>
+                    <ul>
+                        <li>Definir objetivos claros y medibles.</li>
+                        <li>Identificar tu diferencial y propuesta de valor.</li>
+                        <li>Planificar tus contenidos y lanzamientos con estrategia.</li>
+                        <li>Optimizar tu tiempo y recursos.</li>
+                    </ul>
+
+                    <h4>🎁 Incluye</h4>
+                    <ul>
+                        <li>Plantilla editable PDF + Google Docs</li>
+                        <li>Ejemplos reales para inspirarte</li>
+                        <li>Ejercicios prácticos guiados</li>
+                        <li>Checklist para revisión final</li>
+                    </ul>
+
+                    <blockquote>El Workbook está diseñado para emprendedoras que buscan claridad, foco y acción sin
+                        estrés.</blockquote>
+
+                    <p class="course-price"><strong>Precio: $25 USD</strong></p>
+
+                    <!-- ✅ FORMULARIO PARA INGRESAR EL NOMBRE -->
+                    <div class="portal">
+                        <form id="nombreForm">
+                            <label for="nombreCliente">Tu nombre:</label><br>
+                            <input type="text" id="nombreCliente" name="nombreCliente" placeholder="Ej: Sofía" required>
+                        </form>
+                    </div>
+
+                    <!-- ✅ BOTÓN DE MERCADO PAGO -->
+                    <div id="wallet_container"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ✅ BOTÓN VOLVER AL INICIO -->
+    <div class="volver-container fade-in-delayed">
+        <a href="../index.html" class="btn-volver">⬅ Volver al inicio</a>
+    </div>
+
+    <footer class="fade-in-delayed">
+        <p>© 2025 NINA | Todos los derechos reservados</p>
+    </footer>
+
+    <!-- Script principal -->
+    <script src="../script.js"></script>
+
+    <!-- Inicialización del botón de Mercado Pago -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const mp = new MercadoPago("APP_USR-7a956939-a797-43d0-b1da-8e1625af1068", { locale: "es-AR" });
+            const preferenceId = "84492869-1a096240-6b3d-413a-8552-0f9f4e57ebb0"; // reemplazalo por el tuyo si es otro
+            const walletContainer = document.getElementById("wallet_container");
+
+            if (walletContainer) {
+                mp.bricks().create("wallet", "wallet_container", {
+                    initialization: { preferenceId },
+                    customization: { texts: { valueProp: 'smart_option' } },
+                    callbacks: {
+                        onReady: () => console.log("🟢 Botón de pago cargado correctamente"),
+                        onError: (error) => console.error("❌ Error al cargar el botón:", error),
+                        onSubmit: () => {
+                            const nombreCliente = document.getElementById("nombreCliente").value.trim();
+                            if (!nombreCliente) {
+                                alert("Por favor, ingresá tu nombre antes de continuar.");
+                                throw new Error("Falta el nombre del cliente.");
+                            }
+                            localStorage.setItem("nombreCliente", nombreCliente);
+                            console.log("👤 Nombre guardado:", nombreCliente);
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

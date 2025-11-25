@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guía de Reels | NINA</title>
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/reels.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Partículas -->
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+
+    <!-- Mercado Pago -->
+    <script src="https://sdk.mercadopago.com/js/v2"></script>
+</head>
+
+<body class="reels-page">
+
+    <!-- Barra progreso -->
+    <div id="progress-bar"></div>
+
+    <!-- Partículas -->
+    <div id="tsparticles"></div>
+
+    <!-- HEADER -->
+    <header class="fade-in">
+        <div class="header-bg"></div>
+        <div class="header-content fade-in-delayed">
+            <h1>Guía de Reels</h1>
+            <h2 class="reveal">Creá <span class="dynamic-text">Reels</span> que conecten y conviertan 🎬</h2>
+            <p>Ideas, guiones y estructura comprobada para potenciar tu contenido.</p>
+        </div>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <section class="courses fade-in-delayed">
+        <h2>Tu Guía Profesional para Reels ✨</h2>
+
+        <div class="courses-container">
+            <div class="course-card">
+
+                <img class="workbook-img" src="../servicios/reels.png" alt="Guía de Reels">
+
+                <h3>Potenciá tu contenido con estrategias reales</h3>
+
+                <div class="course-content">
+
+                    <h4>🎬 Qué incluye la Guía</h4>
+                    <p>Una guía clara con estrategias simples para grabar, editar y planificar Reels efectivos.</p>
+
+                    <h4>📈 Qué vas a lograr</h4>
+                    <ul>
+                        <li>Aumentar alcance y visibilidad.</li>
+                        <li>Crear Reels que atrapen en 3 segundos.</li>
+                        <li>Usar estructuras y guiones probados.</li>
+                        <li>Conectar con tu audiencia con naturalidad.</li>
+                    </ul>
+
+                    <h4>🎁 Bonus</h4>
+                    <ul>
+                        <li>20 ideas listas para grabar</li>
+                        <li>Guiones editables</li>
+                        <li>Checklist de grabación</li>
+                        <li>Tips de edición</li>
+                    </ul>
+
+                    <blockquote>
+                        Ideal para emprendedoras que quieren mejorar su contenido sin complicarse.
+                    </blockquote>
+
+                    <p class="course-price"><strong>Precio: $18 USD</strong></p>
+
+                    <!-- FORM NOMBRE -->
+                    <div class="portal">
+                        <form id="nombreForm">
+                            <label for="nombreCliente">Tu nombre:</label>
+                            <input type="text" id="nombreCliente" name="nombreCliente" placeholder="Ej: Sofía" required>
+                        </form>
+                    </div>
+
+                    <!-- BOTÓN MERCADO PAGO -->
+                    <div id="wallet_container"></div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BOTÓN VOLVER -->
+    <div class="volver-container fade-in-delayed">
+        <a href="../index.html" class="btn-volver">⬅ Volver al inicio</a>
+    </div>
+
+    <footer class="fade-in-delayed">
+        <p>© 2025 NINA | Todos los derechos reservados</p>
+    </footer>
+
+    <script src="../script.js"></script>
+
+    <!-- Inicialización Mercado Pago -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const mp = new MercadoPago("APP_USR-7a956939-a797-43d0-b1da-8e1625af1068", { locale: "es-AR" });
+
+            const preferenceId = "REEMPLAZAR-CON-TU-PREFERENCE-ID";
+
+            mp.bricks().create("wallet", "wallet_container", {
+                initialization: { preferenceId },
+                customization: { texts: { valueProp: 'smart_option' } },
+                callbacks: {
+                    onSubmit: () => {
+                        const nombreCliente = document.getElementById("nombreCliente").value.trim();
+                        if (!nombreCliente) {
+                            alert("Por favor, ingresá tu nombre.");
+                            throw new Error("Falta nombre.");
+                        }
+                        localStorage.setItem("nombreCliente", nombreCliente);
+                    }
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>

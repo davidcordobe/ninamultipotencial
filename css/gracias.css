@@ -1,0 +1,35 @@
+body {
+    background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+    color: white;
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+    padding: 100px 20px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+p {
+    color: #ccc;
+    margin-bottom: 30px;
+}
+
+a {
+    display: inline-block;
+    background: linear-gradient(90deg, #d9b89c, #e6c9a8);
+    color: #4b3f36;
+    font-weight: 600;
+    padding: 12px 28px;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(217, 184, 156, 0.4);
+}
+
+a:hover {
+    transform: scale(1.05);
+    background: linear-gradient(90deg, #e6c9a8, #f2dbc1);
+    box-shadow: 0 0 18px rgba(217, 184, 156, 0.6);
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>¡Gracias por tu compra!</title>
+
+    <!-- 🔗 Estilos -->
+    <link rel="stylesheet" href="./css//base.css" />
+    <link rel="stylesheet" href="./css/gracias.css" />
+
+    <!-- 💫 Librerías -->
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+</head>
+
+<body>
+    <div id="tsparticles"></div>
+
+    <main class="reveal">
+        <h1>¡Gracias por tu compra, <span id="nombreClienteSpan"></span>! 💙</h1>
+        <p>
+            Tu pago fue procesado con éxito.<br />
+            En breve recibirás un correo con todos los detalles de tu mentoría personalizada.
+        </p>
+
+        <a href="index.html">Volver al inicio</a>
+    </main>
+
+    <!-- 🌐 Scripts -->
+    <script src="./script.js"></script>
+
+    <script>
+        // Mostrar el nombre guardado
+        const nombreCliente = localStorage.getItem("nombreCliente");
+        const span = document.getElementById("nombreClienteSpan");
+        if (span) {
+            span.textContent = nombreCliente ? nombreCliente : "amigo/a";
+        }
+
+        // Enviar email automático (si tenés configurado emailJS)
+        (function () {
+            emailjs.init("jcvPy3aGWrcB6O9U7"); // ← reemplazá con tu userID de emailJS
+        })();
+
+        const serviceID = "service_w4hp6oo"; // ← reemplazá con tu Service ID de EmailJS
+        const templateID = "template_cjmf8hs"; // ← reemplazá con tu Template ID de EmailJS
+
+        if (nombreCliente) {
+            emailjs.send(serviceID, templateID, {
+                to_name: nombreCliente,
+                message: `Gracias ${nombreCliente}, tu compra fue confirmada correctamente.`,
+            });
+        }
+    </script>
+</body>
+
+</html>
