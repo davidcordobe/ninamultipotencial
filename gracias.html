@@ -28,60 +28,63 @@
         <a href="index.html" class="btn-volver">Volver al inicio</a>
     </main>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
+<script>
+document.addEventListener("DOMContentLoaded", function () {
 
-            const emailCliente = document.getElementById("emailCliente").value.trim();
-            if (!emailCliente) {
-                alert("Por favor, ingresá tu correo antes de continuar.");
-                return false;
-            }
-            localStorage.setItem("emailCliente", emailCliente);
-            return true;
+    // =============================
+    // 1️⃣ OBTENER EMAIL DEL CLIENTE
+    // =============================
+    const emailCliente = localStorage.getItem("emailCliente");
 
+    if (!emailCliente) {
+        console.warn("⚠ No hay email guardado");
+    } else {
+        console.log("📩 Email del cliente:", emailCliente);
+    }
 
-            // Inicializar EmailJS
+    // =============================
+    // 2️⃣ ENVIAR EMAIL CON EMAILJS
+    // =============================
+    emailjs.init("iDIf71qi_pTiPWsw3");
 
-            emailjs.init("iDIf71qi_pTiPWsw3"); // tu UserID de EmailJS
+    const serviceID = "service_9tc160p";
+    const templateID = "template_kozjt7o";
 
-            const serviceID = "service_9tc160p";      // tu Service ID
-            const templateID = "template_kozjt7o"; // nombre de tu template en EmailJS
-
-            if (emailCliente) {
-                emailjs.send(serviceID, templateID, {
-                    to_email: emailCliente,       // aquí va el correo del cliente
-                    curso: "Mentoría Personalizada",
-                    link_curso: "https://www.notion.so/Tu-voz-propia-2b6d3a71a4b6814d9518e16569e1eceb"
-                }).then(() => {
-                    console.log("✅ Email enviado al cliente");
-                }, (err) => {
-                    console.error("❌ Error enviando email:", err);
-                });
-            }
-
-
-
-            // Partículas
-            tsParticles.load("tsparticles", {
-                background: { color: { value: "transparent" } },
-                fpsLimit: 60,
-                interactivity: {
-                    events: { onHover: { enable: true, mode: "repulse" }, resize: true },
-                    modes: { repulse: { distance: 100, duration: 0.4 } }
-                },
-                particles: {
-                    color: { value: ["#6c63ff", "#8c7bff", "#a09bff"] },
-                    links: { enable: false },
-                    move: { enable: true, speed: 0.8, outModes: { default: "bounce" } },
-                    number: { value: 50, density: { enable: true, area: 800 } },
-                    opacity: { value: 0.4 },
-                    shape: { type: "circle" },
-                    size: { value: { min: 1, max: 5 } }
-                },
-                detectRetina: true
-            });
+    if (emailCliente) {
+        emailjs.send(serviceID, templateID, {
+            to_email: emailCliente,
+            course_link: "https://www.notion.so/Tu-voz-propia-2b6d3a71a4b6814d9518e16569e1eceb"
+        }).then(() => {
+            console.log("✅ Email enviado al cliente");
+        }).catch(err => {
+            console.error("❌ Error enviando email:", err);
         });
-    </script>
+    }
+
+    // =============================
+    // 3️⃣ PARTÍCULAS
+    // =============================
+    tsParticles.load("tsparticles", {
+        background: { color: { value: "transparent" } },
+        fpsLimit: 60,
+        interactivity: {
+            events: { onHover: { enable: true, mode: "repulse" }, resize: true },
+            modes: { repulse: { distance: 100, duration: 0.4 } }
+        },
+        particles: {
+            color: { value: ["#6c63ff", "#8c7bff", "#a09bff"] },
+            links: { enable: false },
+            move: { enable: true, speed: 0.8, outModes: { default: "bounce" } },
+            number: { value: 50, density: { enable: true, area: 800 } },
+            opacity: { value: 0.4 },
+            shape: { type: "circle" },
+            size: { value: { min: 1, max: 5 } }
+        },
+        detectRetina: true
+    });
+});
+</script>
+
 </body>
 
 </html>

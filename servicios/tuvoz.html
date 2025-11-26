@@ -144,18 +144,28 @@
     <script>
         document.addEventListener("DOMContentLoaded", function () {
 
-            const preference1 = "452724390-879df304-c276-42ad-a70e-9eec78b00e5b"; // reemplazar con Tu Voz 1 cuota
+            const preference1 = "452724390-1a6120ba-a2e6-4260-996b-e5043a46681d"; // reemplazar con Tu Voz 1 cuota
 
 
             function validarEmail() {
-                const emailCliente = document.getElementById("emailCliente").value.trim();
-                if (!emailCliente) {
+                const email = document.getElementById("emailCliente").value.trim();
+
+                if (!email) {
                     alert("Por favor, ingresá tu correo antes de continuar.");
                     return false;
                 }
-                localStorage.setItem("emailCliente", emailCliente);
+
+                // Validar formato básico
+                const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!regex.test(email)) {
+                    alert("Ingresá un correo válido.");
+                    return false;
+                }
+
+                localStorage.setItem("emailCliente", email);
                 return true;
             }
+
 
 
             const btn1 = document.getElementById("btn_1cuota");
@@ -166,6 +176,7 @@
                         window.open(`https://www.mercadopago.com.ar/checkout/v1/redirect?pref_id=${preference1}`, "_blank");
                     }
                 });
+
             }
 
 
