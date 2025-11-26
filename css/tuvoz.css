@@ -73,7 +73,6 @@ header p {
     font-size: 2.2rem;
     margin-bottom: 50px;
     letter-spacing: 1px;
-    color: #fff;
 }
 
 .courses-container {
@@ -91,13 +90,13 @@ header p {
     text-align: left;
 }
 
-.course-card img.workbook-img {
+/* Imagen */
+.course-card img.expresso {
     display: block;
     width: 50%;
     border-radius: 12px;
     margin: 0 auto 30px auto; /* centra horizontalmente y mantiene margen inferior */
 }
-
 
 /* Titulares */
 .course-card h3 {
@@ -128,7 +127,7 @@ header p {
     font-size: 1rem;
 }
 
-.course-content ul {
+.course-content ol {
     padding-left: 25px;
     margin-bottom: 25px;
 }
@@ -137,7 +136,11 @@ header p {
     color: #ccc;
     margin-bottom: 8px;
     font-size: 1rem;
-    line-height: 1.6;
+}
+
+.course-content ul {
+    padding-left: 25px;
+    margin-bottom: 25px;
 }
 
 blockquote {
@@ -150,6 +153,22 @@ blockquote {
     margin: 25px 0;
     padding: 15px;
 }
+
+.ejes-comunicacion {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 0.5rem;
+}
+
+.ejes-comunicacion li {
+    margin-bottom: 0.5rem;
+    background: #c48248; /* color de fondo suave */
+    padding: 0.5rem 1rem;
+    border-left: 4px solid #ffdfb3; /* línea lateral */
+    border-radius: 5px;
+    font-style: italic;
+}
+
 
 /* Precio */
 .course-price {
@@ -200,11 +219,59 @@ blockquote {
 /* ==============================
    BOTÓN DE MERCADO PAGO
 ============================== */
-#wallet_container {
-    margin-top: 35px;
-    transform: scale(0.9);
+/* Contenedor de cada opción de pago */
+.pago-opcion {
+    margin: 20px 0;
     text-align: center;
 }
+
+/* Título encima del botón */
+.pago-opcion h4 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #5c5c5c;
+    font-weight: 500;
+}
+
+/* Botones de pago */
+.btn-pago {
+    background: linear-gradient(135deg, #f9a826, #f97316); /* degradado naranja */
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Hover */
+.btn-pago:hover {
+    background: linear-gradient(135deg, #f97316, #f9a826); /* invertir degradado */
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+/* Focus / Active */
+.btn-pago:focus,
+.btn-pago:active {
+    outline: none;
+    transform: translateY(-1px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.25);
+}
+
+/* Responsivo: ajustar tamaño en móviles */
+@media (max-width: 768px) {
+    .btn-pago {
+        width: 90%;
+        font-size: 0.95rem;
+        padding: 10px 0;
+    }
+}
+
+
 
 /* ==============================
    BOTÓN VOLVER AL INICIO (ESTILO ARENA)
@@ -222,11 +289,27 @@ blockquote {
     padding: 12px 28px;
     border-radius: 30px;
     text-decoration: none;
-    transition: all;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(217, 184, 156, 0.4);
 }
 
 .btn-volver:hover {
     transform: scale(1.05);
     background: linear-gradient(90deg, #e6c9a8, #f2dbc1);
     box-shadow: 0 0 18px rgba(217, 184, 156, 0.6);
+}
+
+
+
+/* ==============================
+   FOOTER
+============================== */
+footer {
+    background-color: #000;
+    color: #aaa;
+    text-align: center;
+    padding: 25px;
+    font-size: 0.9rem;
+    margin-top: 60px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
