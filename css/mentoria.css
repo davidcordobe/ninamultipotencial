@@ -203,11 +203,58 @@ blockquote {
 /* ==============================
    BOTÓN DE MERCADO PAGO
 ============================== */
-#wallet_container {
-    margin-top: 35px;
-    transform: scale(0.9);
+/* Contenedor de cada opción de pago */
+.pago-opcion {
+    margin: 20px 0;
     text-align: center;
 }
+
+/* Título encima del botón */
+.pago-opcion h4 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #5c5c5c;
+    font-weight: 500;
+}
+
+/* Botones de pago */
+.btn-pago {
+    background: linear-gradient(135deg, #f9a826, #f97316); /* degradado naranja */
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Hover */
+.btn-pago:hover {
+    background: linear-gradient(135deg, #f97316, #f9a826); /* invertir degradado */
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+/* Focus / Active */
+.btn-pago:focus,
+.btn-pago:active {
+    outline: none;
+    transform: translateY(-1px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.25);
+}
+
+/* Responsivo: ajustar tamaño en móviles */
+@media (max-width: 768px) {
+    .btn-pago {
+        width: 90%;
+        font-size: 0.95rem;
+        padding: 10px 0;
+    }
+}
+
 
 
 /* ==============================

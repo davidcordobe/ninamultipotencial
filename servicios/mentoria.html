@@ -13,9 +13,6 @@
 
     <!-- Librerías externas -->
     <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
-
-    <!-- SDK Mercado Pago -->
-    <script src="https://sdk.mercadopago.com/js/v2"></script>
 </head>
 
 <body class="hogwarts-page">
@@ -60,7 +57,6 @@
                     </ul>
                 </div>
 
-                <p class="course-price"><strong>Precio: $50 USD</strong></p>
 
                 <!-- FORMULARIO DEL NOMBRE -->
                 <div class="portal">
@@ -73,13 +69,13 @@
                 <!-- BOTÓN 1 CUOTA -->
                 <div class="pago-opcion">
                     <h4>Pagar en 1 cuota</h4>
-                    <div id="wallet_1cuota"></div>
+                    <button id="btn_1cuota" class="btn-pago">Pagar en 1 cuota</button>
                 </div>
 
                 <!-- BOTÓN 3 CUOTAS -->
                 <div class="pago-opcion">
                     <h4>Pagar en 3 cuotas sin interés</h4>
-                    <div id="wallet_3cuotas"></div>
+                    <button id="btn_3cuotas" class="btn-pago">Pagar en 3 cuotas sin interés</button>
                 </div>
 
             </div>
@@ -98,54 +94,45 @@
     <!-- Script principal -->
     <script src="../script.js"></script>
 
-    <!-- MERCADO PAGO – BOTONES -->
+    <!-- BOTONES DE MERCADO PAGO CON VALIDACIÓN -->
     <script>
         document.addEventListener("DOMContentLoaded", function () {
 
-            const mp = new MercadoPago("APP_USR-7a956939-a797-43d0-b1da-8e1625af1068", { locale: "es-AR" });
-
-            // 🔥 REEMPLAZAR POR TUS PREFERENCIAS REALES
-            const preference_1cuota = "452724390-67042929-cdda-4ba3-9127-3fc9f6e2bb07";
-            const preference_3cuotas = "452724390-eb4ce572-feff-430a-bd81-752a3124b0de";
+            const preference1 = "452724390-67042929-cdda-4ba3-9127-3fc9f6e2bb07";
+            const preference3 = "452724390-eb4ce572-feff-430a-bd81-752a3124b0de";
 
             function validarNombre() {
                 const nombre = document.getElementById("nombreCliente").value.trim();
                 if (!nombre) {
                     alert("Por favor, ingresá tu nombre antes de continuar.");
-                    throw new Error("Falta el nombre del cliente.");
+                    return false;
                 }
                 localStorage.setItem("nombreCliente", nombre);
-                return nombre;
+                return true;
             }
 
-            // BOTÓN 1 CUOTA
-            mp.bricks().create("wallet", "wallet_1cuota", {
-                initialization: { preferenceId: preference_1cuota },
-                customization: {
-                    texts: {
-                        valueProp: "Pagar en 1 cuota"
-                    }
-                },
-                callbacks: {
-                    onSubmit: validarNombre
-                }
-            });
+            const btn1 = document.getElementById("btn_1cuota");
+            const btn3 = document.getElementById("btn_3cuotas");
 
-            // BOTÓN 3 CUOTAS SIN INTERÉS
-            mp.bricks().create("wallet", "wallet_3cuotas", {
-                initialization: { preferenceId: preference_3cuotas },
-                customization: {
-                    texts: {
-                        valueProp: "Pagar en 3 cuotas sin interés"
+            if (btn1) {
+                btn1.addEventListener("click", function () {
+                    if (validarNombre()) {
+                        window.open(`https://www.mercadopago.com.ar/checkout/v1/redirect?pref_id=${preference1}`, "_blank");
                     }
-                },
-                callbacks: {
-                    onSubmit: validarNombre
-                }
-            });
+                });
+            }
+
+            if (btn3) {
+                btn3.addEventListener("click", function () {
+                    if (validarNombre()) {
+                        window.open(`https://www.mercadopago.com.ar/checkout/v1/redirect?pref_id=${preference3}`, "_blank");
+                    }
+                });
+            }
 
         });
     </script>
+
 
 </body>
 

@@ -14,7 +14,7 @@ header {
 .header-bg {
   position: absolute;
   inset: 0;
-  background: url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1950&q=80")
+  background: url("../servicios/ninamultipotencial.svg")
     center/cover no-repeat;
   filter: brightness(0.4);
   z-index: 0;
