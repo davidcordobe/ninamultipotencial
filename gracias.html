@@ -7,7 +7,7 @@
     <title>¡Gracias por tu compra!</title>
 
     <!-- 🔗 Estilos -->
-    <link rel="stylesheet" href="./css//base.css" />
+    <link rel="stylesheet" href="./css/base.css" />
     <link rel="stylesheet" href="./css/gracias.css" />
 
     <!-- 💫 Librerías -->
@@ -16,43 +16,71 @@
 </head>
 
 <body>
+    <!-- Partículas de fondo -->
     <div id="tsparticles"></div>
 
     <main class="reveal">
-        <h1>¡Gracias por tu compra, <span id="nombreClienteSpan"></span>! 💙</h1>
+        <h1>¡Gracias por tu compra, <span id="nombreClienteSpan">amigo/a</span>! 💙</h1>
         <p>
             Tu pago fue procesado con éxito.<br />
             En breve recibirás un correo con todos los detalles de tu mentoría personalizada.
         </p>
-
-        <a href="index.html">Volver al inicio</a>
+        <a href="index.html" class="btn-volver">Volver al inicio</a>
     </main>
 
-    <!-- 🌐 Scripts -->
-    <script src="./script.js"></script>
-
     <script>
-        // Mostrar el nombre guardado
-        const nombreCliente = localStorage.getItem("nombreCliente");
-        const span = document.getElementById("nombreClienteSpan");
-        if (span) {
-            span.textContent = nombreCliente ? nombreCliente : "amigo/a";
-        }
+        document.addEventListener("DOMContentLoaded", function () {
 
-        // Enviar email automático (si tenés configurado emailJS)
-        (function () {
-            emailjs.init("jcvPy3aGWrcB6O9U7"); // ← reemplazá con tu userID de emailJS
-        })();
+            const emailCliente = document.getElementById("emailCliente").value.trim();
+            if (!emailCliente) {
+                alert("Por favor, ingresá tu correo antes de continuar.");
+                return false;
+            }
+            localStorage.setItem("emailCliente", emailCliente);
+            return true;
 
-        const serviceID = "service_w4hp6oo"; // ← reemplazá con tu Service ID de EmailJS
-        const templateID = "template_cjmf8hs"; // ← reemplazá con tu Template ID de EmailJS
 
-        if (nombreCliente) {
-            emailjs.send(serviceID, templateID, {
-                to_name: nombreCliente,
-                message: `Gracias ${nombreCliente}, tu compra fue confirmada correctamente.`,
+            // Inicializar EmailJS
+
+            emailjs.init("iDIf71qi_pTiPWsw3"); // tu UserID de EmailJS
+
+            const serviceID = "service_9tc160p";      // tu Service ID
+            const templateID = "template_kozjt7o"; // nombre de tu template en EmailJS
+
+            if (emailCliente) {
+                emailjs.send(serviceID, templateID, {
+                    to_email: emailCliente,       // aquí va el correo del cliente
+                    curso: "Mentoría Personalizada",
+                    link_curso: "https://www.notion.so/Tu-voz-propia-2b6d3a71a4b6814d9518e16569e1eceb"
+                }).then(() => {
+                    console.log("✅ Email enviado al cliente");
+                }, (err) => {
+                    console.error("❌ Error enviando email:", err);
+                });
+            }
+
+
+
+            // Partículas
+            tsParticles.load("tsparticles", {
+                background: { color: { value: "transparent" } },
+                fpsLimit: 60,
+                interactivity: {
+                    events: { onHover: { enable: true, mode: "repulse" }, resize: true },
+                    modes: { repulse: { distance: 100, duration: 0.4 } }
+                },
+                particles: {
+                    color: { value: ["#6c63ff", "#8c7bff", "#a09bff"] },
+                    links: { enable: false },
+                    move: { enable: true, speed: 0.8, outModes: { default: "bounce" } },
+                    number: { value: 50, density: { enable: true, area: 800 } },
+                    opacity: { value: 0.4 },
+                    shape: { type: "circle" },
+                    size: { value: { min: 1, max: 5 } }
+                },
+                detectRetina: true
             });
-        }
+        });
     </script>
 </body>
 

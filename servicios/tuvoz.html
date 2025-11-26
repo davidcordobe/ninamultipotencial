@@ -68,13 +68,15 @@
                     </ul>
                 </div> -->
 
-                    <!-- FORMULARIO DEL NOMBRE -->
+                    <!-- FORMULARIO DEL EMAIL -->
                     <div class="portal">
-                        <form id="nombreForm">
-                            <label for="nombreCliente">Tu nombre:</label><br>
-                            <input type="text" id="nombreCliente" name="nombreCliente" placeholder="Ej: Sofía" required>
+                        <form id="emailForm">
+                            <label for="emailCliente">Tu correo electrónico:</label><br>
+                            <input type="email" id="emailCliente" name="emailCliente" placeholder="ej: usuario@mail.com"
+                                required>
                         </form>
                     </div>
+
 
                     <!-- BOTÓN 1 CUOTA -->
                     <div class="pago-opcion">
@@ -145,26 +147,27 @@
             const preference1 = "452724390-879df304-c276-42ad-a70e-9eec78b00e5b"; // reemplazar con Tu Voz 1 cuota
 
 
-            function validarNombre() {
-                const nombre = document.getElementById("nombreCliente").value.trim();
-                if (!nombre) {
-                    alert("Por favor, ingresá tu nombre antes de continuar.");
+            function validarEmail() {
+                const emailCliente = document.getElementById("emailCliente").value.trim();
+                if (!emailCliente) {
+                    alert("Por favor, ingresá tu correo antes de continuar.");
                     return false;
                 }
-                localStorage.setItem("nombreCliente", nombre);
+                localStorage.setItem("emailCliente", emailCliente);
                 return true;
             }
 
-            const btn1 = document.getElementById("btn_1cuota");
 
+            const btn1 = document.getElementById("btn_1cuota");
 
             if (btn1) {
                 btn1.addEventListener("click", function () {
-                    if (validarNombre()) {
+                    if (validarEmail()) {
                         window.open(`https://www.mercadopago.com.ar/checkout/v1/redirect?pref_id=${preference1}`, "_blank");
                     }
                 });
             }
+
 
         });
     </script>

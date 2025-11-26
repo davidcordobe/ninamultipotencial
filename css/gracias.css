@@ -16,7 +16,8 @@ p {
     margin-bottom: 30px;
 }
 
-a {
+/* Botón volver */
+.btn-volver {
     display: inline-block;
     background: linear-gradient(90deg, #d9b89c, #e6c9a8);
     color: #4b3f36;
@@ -28,8 +29,40 @@ a {
     box-shadow: 0 0 10px rgba(217, 184, 156, 0.4);
 }
 
-a:hover {
+.btn-volver:hover {
     transform: scale(1.05);
     background: linear-gradient(90deg, #e6c9a8, #f2dbc1);
     box-shadow: 0 0 18px rgba(217, 184, 156, 0.6);
+}
+
+/* Botones de pago */
+.btn-pago {
+    display: inline-block;
+    background: linear-gradient(90deg, #d9b89c, #e6c9a8);
+    color: #4b3f36;
+    font-weight: 600;
+    padding: 12px 28px;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(217, 184, 156, 0.4);
+    cursor: pointer;
+    margin: 10px 0;
+}
+
+.btn-pago:hover {
+    transform: scale(1.05);
+    background: linear-gradient(90deg, #e6c9a8, #f2dbc1);
+    box-shadow: 0 0 18px rgba(217, 184, 156, 0.6);
+}
+
+/* Secciones de pago */
+.pago-opcion {
+    margin: 25px 0;
+}
+
+.pago-opcion h4 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: #fff;
 }
