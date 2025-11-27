@@ -112,6 +112,34 @@ header p {
 }
 
 
+.course-card.disabled {
+  opacity: 0.45;
+  filter: grayscale(80%);
+  pointer-events: none;
+  position: relative;
+}
+
+.course-card.disabled::after {
+  content: "Próximamente";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0,0,0,0.6);
+  color: #d9b89c;
+  padding: 10px 20px;
+  border-radius: 12px;
+  font-size: 1,5%;
+  font-weight: 700;
+  backdrop-filter: blur(3px);
+}
+
+.course-card.disabled .mp-btn {
+  background: #888 !important;
+  cursor: not-allowed;
+}
+
+
 /* ==============================
    💛 BOTÓN GENERAL (Paleta arena/beige)
 ============================== */
