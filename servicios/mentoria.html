@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mentoría Personalizada | NINA</title>
+    <title>Expres-so a Hogwarts ✨🚄 | NINA</title>
+    <link rel="icon" type="image/svg+xml" href="../servicios/ninamultipotencial.svg">
 
     <!-- Estilos -->
     <link rel="stylesheet" href="../css/base.css">
@@ -21,11 +22,11 @@
 
     <header class="fade-in">
         <div class="header-bg"></div>
-        <div class="header-content fade-in-delayed">
+        <!-- <div class="header-content fade-in-delayed">
             <h1>Mentoría Personalizada</h1>
             <h2 class="reveal">Impulsa tu <span class="dynamic-text">Carrera</span> con orientación 1 a 1 🚀</h2>
             <p>Una sesión individual para trabajar tus objetivos profesionales.</p>
-        </div>
+        </div> -->
     </header>
 
     <section class="courses fade-in-delayed">
@@ -60,11 +61,13 @@
 
                 <!-- FORMULARIO DEL NOMBRE -->
                 <div class="portal">
-                    <form id="nombreForm">
-                        <label for="nombreCliente">Tu nombre:</label><br>
-                        <input type="text" id="nombreCliente" name="nombreCliente" placeholder="Ej: Sofía" required>
+                    <form id="emailForm">
+                        <label for="emailCliente">Tu email:</label><br>
+                        <input type="email" id="emailCliente" name="emailCliente" placeholder="Ej: usuario@gmail.com"
+                            required>
                     </form>
                 </div>
+
 
                 <!-- BOTÓN 1 CUOTA -->
                 <div class="pago-opcion">
@@ -101,13 +104,23 @@
             const preference1 = "452724390-67042929-cdda-4ba3-9127-3fc9f6e2bb07";
             const preference3 = "452724390-eb4ce572-feff-430a-bd81-752a3124b0de";
 
-            function validarNombre() {
-                const nombre = document.getElementById("nombreCliente").value.trim();
-                if (!nombre) {
-                    alert("Por favor, ingresá tu nombre antes de continuar.");
+            function validarEmail() {
+                const email = document.getElementById("emailCliente").value.trim();
+
+                // Valida si el campo está vacío
+                if (!email) {
+                    alert("Por favor, ingresá tu email antes de continuar.");
                     return false;
                 }
-                localStorage.setItem("nombreCliente", nombre);
+
+                // Valida formato de email
+                const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!regex.test(email)) {
+                    alert("Por favor, ingresá un email válido.");
+                    return false;
+                }
+
+                localStorage.setItem("emailCliente", email);
                 return true;
             }
 
@@ -116,7 +129,7 @@
 
             if (btn1) {
                 btn1.addEventListener("click", function () {
-                    if (validarNombre()) {
+                    if (validarEmail()) {
                         window.open(`https://www.mercadopago.com.ar/checkout/v1/redirect?pref_id=${preference1}`, "_blank");
                     }
                 });
@@ -124,7 +137,7 @@
 
             if (btn3) {
                 btn3.addEventListener("click", function () {
-                    if (validarNombre()) {
+                    if (validarEmail()) {
                         window.open(`https://www.mercadopago.com.ar/checkout/v1/redirect?pref_id=${preference3}`, "_blank");
                     }
                 });
@@ -132,6 +145,7 @@
 
         });
     </script>
+
 
 
 </body>
